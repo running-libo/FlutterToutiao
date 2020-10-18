@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zhengda.toutiao">
    <application
-        android:label="toutiao"
-        android:icon="@mipmap/ic_launcher">
+        android:label="今日头条"
+        android:icon="@mipmap/launcher">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
