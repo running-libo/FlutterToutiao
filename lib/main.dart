@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
+class MainPage extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -21,16 +17,29 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
+    return Column(
+      children: [
         Container(
-          margin: const EdgeInsets.only(top: 200),
-          child: Text("信息创造价值", style: TextStyle(fontSize: 30, color: Colors.red))
+          height: 720,
         ),
-        Image.asset("images/splash_logo.png", width: 100)
+        BottomNavigationBar(
+          items: [
+            BottomNavigationBarItem(
+                icon: Icon(Icons.home, color: Colors.red),
+                title: Text("首页")
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.home, color: Colors.red),
+                title: Text("西瓜视频")
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.home, color: Colors.red),
+                title: Text("放映厅")
+            )
+          ],
+        )
       ],
     );
   }
