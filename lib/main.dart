@@ -3,8 +3,38 @@ import 'package:toutiao/homepage.dart';
 import 'package:toutiao/mine.dart';
 import 'package:toutiao/xigua.dart';
 
-class MainPage extends StatelessWidget {
+class MainPage extends StatefulWidget {
+  MainPage({Key key}) : super(key: key);
+
+  _MyAppState createState() => _MyAppState();
+
+}
+
+class _MyAppState extends State<MainPage> {
   // This widget is the root of your application.
+  int _currentIndex = 0;
+
+  List<Widget> _pageList = [
+    HomePage(),
+    XiguaPage(),
+    MinePage(),
+  ];
+
+  List<BottomNavigationBarItem> bottomItems = [
+    BottomNavigationBarItem(
+        icon: Icon(Icons.home, color: Colors.red),
+        title: Text("首页")
+    ),
+    BottomNavigationBarItem(
+        icon: Icon(Icons.video_call_rounded, color: Colors.red),
+        title: Text("西瓜视频")
+    ),
+    BottomNavigationBarItem(
+        icon: Icon(Icons.account_circle_rounded, color: Colors.red),
+        title: Text("我的")
+    )
+  ];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,45 +43,21 @@ class MainPage extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        body: MyHomePage(),
+        body: this._pageList[this._currentIndex],
         bottomNavigationBar: BottomNavigationBar(
           selectedFontSize: 14,
           unselectedFontSize: 12,
-          items: [
-            BottomNavigationBarItem(
-                icon: Icon(Icons.home, color: Colors.red),
-                title: Text("首页")
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.video_call_rounded, color: Colors.red),
-                title: Text("西瓜视频")
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.account_circle_rounded, color: Colors.red),
-                title: Text("我的")
-            )
-          ],
+          currentIndex: _currentIndex,
+          type: BottomNavigationBarType.fixed,
+          items: bottomItems,
           onTap: (int index) {
-
+            setState(() {
+              this._currentIndex = index;
+            });
           },
         ),
       ),
     );
-  }
-}
-
-/// 主页面多个fragment
-class MyHomePage extends StatelessWidget {
-
-  List<Widget> _pageList = [
-    HomePage(),
-    XiguaPage(),
-    MinePage(),
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return _pageList[0];
   }
 
 }
