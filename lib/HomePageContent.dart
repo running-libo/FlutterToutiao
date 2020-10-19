@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:toutiao/homepageSubPage.dart';
 
 // 页面内容
-class PageContent extends StatefulWidget {
-  PageContent({Key key, this.title}) : super(key: key);
+class HomePageContent extends StatefulWidget {
+  HomePageContent({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  PageContentState createState() => PageContentState();
+  HomePageContentState createState() => HomePageContentState();
 }
 
-class PageContentState extends State<PageContent>
+class HomePageContentState extends State<HomePageContent>
     with SingleTickerProviderStateMixin {
   List tabs = ["关注", "推荐", "热榜", "要闻", "新时代", "抗疫"];
   TabController tabController;
