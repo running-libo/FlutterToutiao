@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:toutiao/homepageSubPage.dart';
+import 'package:toutiao/home/xiguapageSubPage.dart';
 
 // 页面内容
-class HomePageContent extends StatefulWidget {
-  HomePageContent({Key key, this.title}) : super(key: key);
+class XiguaPageContent extends StatefulWidget {
+  XiguaPageContent({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  HomePageContentState createState() => HomePageContentState();
+  XiguaPageContentState createState() => XiguaPageContentState();
 }
 
-class HomePageContentState extends State<HomePageContent>
+class XiguaPageContentState extends State<XiguaPageContent>
     with SingleTickerProviderStateMixin {
-  List tabs = ["关注", "推荐", "热榜", "要闻", "新时代", "抗疫"];
+  List tabs = ["推荐", "热门", "影视", "直播", "游戏", "音乐"];
   TabController tabController;
 
   @override
@@ -31,27 +31,29 @@ class HomePageContentState extends State<HomePageContent>
         appBar: AppBar(
           backgroundColor: Colors.red,
           bottom: TabBar(
+            labelColor: Colors.white,
             controller: tabController,
+            indicatorColor: Colors.red,
             isScrollable: true,
             tabs: <Widget>[
-              Tab(text: "关注"),
               Tab(text: "推荐"),
-              Tab(text: "热榜"),
-              Tab(text: "要闻"),
-              Tab(text: "新时代"),
-              Tab(text: "抗疫"),
+              Tab(text: "热门"),
+              Tab(text: "影视"),
+              Tab(text: "直播"),
+              Tab(text: "游戏"),
+              Tab(text: "音乐"),
             ],
           ),
         ),
         body: TabBarView(
             controller: tabController,
             children: <Widget>[
-              HomepageSubpage(),
-              HomepageSubpage(),
-              HomepageSubpage(),
-              HomepageSubpage(),
-              HomepageSubpage(),
-              HomepageSubpage(),
+              XiguapageSubpage(),
+              XiguapageSubpage(),
+              XiguapageSubpage(),
+              XiguapageSubpage(),
+              XiguapageSubpage(),
+              XiguapageSubpage(),
             ]
         ));
   }

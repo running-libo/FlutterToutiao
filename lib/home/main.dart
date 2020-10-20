@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:toutiao/homepage.dart';
-import 'package:toutiao/mine.dart';
-import 'package:toutiao/xigua.dart';
+import 'package:toutiao/home/homepage.dart';
+import 'package:toutiao/home/mine.dart';
+import 'package:toutiao/home/xigua.dart';
 
 class MainPage extends StatefulWidget {
   MainPage({Key key}) : super(key: key);

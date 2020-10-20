@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toutiao/HomePageContent.dart';
+import 'package:toutiao/home/HomePageContent.dart';
 
 class HomePage extends StatelessWidget {
   @override

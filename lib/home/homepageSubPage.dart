@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'bean/ListItem.dart';
+import '../bean/ListItem.dart';
 
 class HomepageSubpage extends StatelessWidget {
   @override

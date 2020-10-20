@@ -1,8 +1,7 @@
 import 'dart:async';
-import 'dart:js';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:toutiao/main.dart';
+import 'package:toutiao/home/main.dart';
 
 void main() {
   runApp(MyApp());
@@ -26,12 +25,20 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatelessWidget {
 
-  MyHomePage() {
-    countDown();
+  //倒计时2秒跳进主页面
+  void countDown(BuildContext context) {
+    new Timer(new Duration(seconds: 2), () {
+      // 只在倒计时结束时回调
+      Navigator.of(context).push(new MaterialPageRoute(builder: (context) {
+        return new MainPage();
+      }));
+    });
   }
 
   @override
   Widget build(BuildContext context) {
+    countDown(context);
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -43,14 +50,6 @@ class MyHomePage extends StatelessWidget {
             margin: const EdgeInsets.only(top: 200),
             child: Text("信息创造价值", style: TextStyle(fontSize: 35, color: Colors.red)),
         ),
-        FloatingActionButton(
-          child: Text("+", style: TextStyle(fontSize: 30)),
-          onPressed: () {
-            Navigator.of(context).push(new MaterialPageRoute(builder: (context) {
-              return new MainPage();
-            }));
-          },
-        ),
         Container(
           margin: const EdgeInsets.only(top: 380),
           alignment: Alignment.bottomCenter,
@@ -59,15 +58,4 @@ class MyHomePage extends StatelessWidget {
       ],
     );
   }
-}
-
-/**
- * 倒计时2秒跳进主页面
- */
-void countDown() {
-  Timer timer = new Timer(new Duration(seconds: 2), () {
-    // 只在倒计时结束时回调
-    // Toast.show("跳转页面", context, duration: Toast.LENGTH_SHORT);
-
-  });
 }

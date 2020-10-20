@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:toutiao/xiguaPageContent.dart';
+import 'package:toutiao/home/xiguaPageContent.dart';
 
 class XiguaPage extends StatelessWidget {
   @override

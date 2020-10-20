@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'bean/ListItem.dart';
+import '../bean/ListItem.dart';
 
 class XiguapageSubpage extends StatelessWidget {
   @override
