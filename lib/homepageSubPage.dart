@@ -34,18 +34,34 @@ class HomeContent extends StatelessWidget {
     return ListView.builder(
         itemCount: list.length,
         itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(list[index].title, style: TextStyle(fontSize: 15)),
-            subtitle: Text(list[index].authorName + " " + list[index].commentCount + "评论"),
-            dense: true,
-            trailing: list[index].image,
-            onTap: () {
-              // do something
-            },
-            onLongPress: (){
-              // do something else
-            },
+          return Container(
+            padding: const EdgeInsets.all(15),
+            child: Stack(
+              children: [
+                Container(
+                  width: 200,
+                  height: 60,
+                  child: Text(list[index].title, style: TextStyle(fontSize: 16)),
+                ),
+                Positioned(
+                  child: Container(
+                    margin: const EdgeInsets.fromLTRB(208, 0, 0, 0),
+                    width: 150,
+                    height: 70,
+                    child: ClipRRect(
+                        borderRadius: BorderRadius.circular(4),
+                        child: list[index].image
+                    ),
+                  ),
+                ),
+                Container(
+                    margin: const EdgeInsets.fromLTRB(0, 60, 0, 0),
+                    child: Text(list[index].authorName + "  评论" + list[index].commentCount, style: TextStyle(fontSize: 12, color: Colors.black38))
+                ),
+              ],
+            ),
           );
         });
   }
+
 }

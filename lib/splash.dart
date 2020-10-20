@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:js';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:toutiao/main.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
+
   MyHomePage() {
     countDown();
   }
@@ -31,12 +33,13 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      textDirection: TextDirection.ltr,
+      verticalDirection: VerticalDirection.down,
       children: <Widget>[
         Container(
-            alignment: Alignment.center,
-            width: double.infinity,
+            alignment: Alignment.topCenter,
             margin: const EdgeInsets.only(top: 200),
             child: Text("信息创造价值", style: TextStyle(fontSize: 35, color: Colors.red)),
         ),
@@ -49,10 +52,9 @@ class MyHomePage extends StatelessWidget {
           },
         ),
         Container(
+          margin: const EdgeInsets.only(top: 380),
           alignment: Alignment.bottomCenter,
-          height: 450,
           child: Image.asset("images/splash_logo.png", width: 100),
-          width: double.infinity,
         )
       ],
     );
