@@ -43,9 +43,13 @@ class HomeContent extends StatelessWidget {
                         padding: const EdgeInsets.all(10),
                         child: Text("不愧是记忆大师，把记忆方法都编成了\"口诀\"，快记下来！", style: TextStyle(fontSize: 16, color: Colors.white)),
                     ),
-                    Container(
-                      child: Image.asset("images/ic_play.png", width: 30, height: 30, alignment: Alignment.topCenter),
+                    Center(
+                      child: Container(
+                        margin: const EdgeInsets.fromLTRB(0, 100, 0, 0),
+                        child: Image.asset("images/ic_play.png", width: 40, height: 40, alignment: Alignment.topCenter),
+                      ),
                     ),
+
                   ],
                 ),
                 UserCard()
@@ -75,10 +79,11 @@ class UserCard extends StatelessWidget {
                 ))
         ),
         Text("卢菲菲记忆"),
-        Text("查看详情", style: TextStyle(color: Colors.deepOrangeAccent)),
         Container(
-            child: Image.asset("images/ic_more.png", width: 30, height: 30, alignment: Alignment.topCenter),
+          margin: const EdgeInsets.fromLTRB(125, 0, 10, 0),
+          child: Text("查看详情", style: TextStyle(color: Colors.deepOrangeAccent)),
         ),
+        Image.asset("images/ic_more.png", width: 30, height: 30, alignment: Alignment.topCenter),
         ],
     );
   }

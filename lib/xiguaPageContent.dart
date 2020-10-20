@@ -31,7 +31,9 @@ class XiguaPageContentState extends State<XiguaPageContent>
         appBar: AppBar(
           backgroundColor: Colors.red,
           bottom: TabBar(
+            labelColor: Colors.white,
             controller: tabController,
+            indicatorColor: Colors.red,
             isScrollable: true,
             tabs: <Widget>[
               Tab(text: "推荐"),
