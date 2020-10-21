@@ -53,6 +53,9 @@ flutter:
     - images/ic_more.png
     - images/launcher.png
     - images/ic_close.png
+    - images/ic_scan.png
+    - images/ic_setting.png
+    - images/circle_bg.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

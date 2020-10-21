@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toutiao/home/homepage.dart';
-import 'package:toutiao/home/mine.dart';
+import 'package:toutiao/mine/mine.dart';
 import 'package:toutiao/home/xigua.dart';
 
 class MainPage extends StatefulWidget {
