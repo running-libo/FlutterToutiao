@@ -42,7 +42,7 @@ class HomePageContentState extends State<HomePageContent>
               child: HomeSearchView(),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 110),
+              margin: const EdgeInsets.only(top: 130),
               child: TabBarView(
                 controller: tabController,
                 children: [

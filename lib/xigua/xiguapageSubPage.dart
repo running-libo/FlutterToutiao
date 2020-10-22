@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toutiao/bean/VideoItemBean.dart';
+import 'package:toutiao/widget/MyEasyRefresh.dart';
 
 class XiguapageSubpage extends StatelessWidget {
   @override
@@ -56,37 +57,39 @@ class HomeContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: list.length,
-        itemBuilder: (context, index) {
-          return Container(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Stack(
+    return MyEasyRefresh(
+        ListView.builder(
+            itemCount: list.length,
+            itemBuilder: (context, index) {
+              return Container(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Container(
-                      height: 250,
-                      child: list[index].image,
+                    Stack(
+                      children: [
+                        Container(
+                          height: 250,
+                          child: list[index].image,
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(10),
+                          child: Text(list[index].title,
+                              style: TextStyle(fontSize: 16, color: Colors.white)),
+                        ),
+                        Container(
+                          height: 250,
+                          alignment: Alignment.center,
+                          child: Image.asset("images/ic_play.png",
+                              width: 40, height: 40),
+                        )
+                      ],
                     ),
-                    Container(
-                      padding: const EdgeInsets.all(10),
-                      child: Text(list[index].title,
-                          style: TextStyle(fontSize: 16, color: Colors.white)),
-                    ),
-                    Container(
-                      height: 250,
-                      alignment: Alignment.center,
-                      child: Image.asset("images/ic_play.png",
-                          width: 40, height: 40),
-                    )
+                    UserCard(list[index])
                   ],
                 ),
-                UserCard(list[index])
-              ],
-            ),
-          );
-        });
+              );
+            })
+    );
   }
 }
 
