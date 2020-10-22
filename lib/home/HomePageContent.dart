@@ -15,6 +15,7 @@ class HomePageContentState extends State<HomePageContent>
     with SingleTickerProviderStateMixin {
   List tabs = ["关注", "推荐", "热榜", "要闻", "新时代", "抗疫"];
   TabController tabController;
+  var topBarHeight = 65;
 
   @override
   void initState() {
@@ -27,32 +28,50 @@ class HomePageContentState extends State<HomePageContent>
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.red,
-          bottom: TabBar(
-            controller: tabController,
-            isScrollable: true,
-            tabs: <Widget>[
-              Tab(text: "关注"),
-              Tab(text: "推荐"),
-              Tab(text: "热榜"),
-              Tab(text: "要闻"),
-              Tab(text: "新时代"),
-              Tab(text: "抗疫"),
-            ],
-          ),
+      body: Container(
+        child: Stack(
+          children: [
+            Container(
+              color: Colors.red,
+              height: 85,
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 130),
+              child: TabBarView(
+                controller: tabController,
+                children: [
+                  HomepageSubpage(),
+                  HomepageSubpage(),
+                  HomepageSubpage(),
+                  HomepageSubpage(),
+                  HomepageSubpage(),
+                  HomepageSubpage(),
+                ],
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 85),
+              child: TabBar(
+                controller: tabController,
+                isScrollable: true,
+                labelColor: Colors.red,
+                unselectedLabelColor: Colors.black87,
+                indicatorColor: Colors.red,
+                tabs: [
+                  Tab(text: "关注"),
+                  Tab(text: "推荐"),
+                  Tab(text: "热榜"),
+                  Tab(text: "要闻"),
+                  Tab(text: "新时代"),
+                  Tab(text: "抗疫"),
+                ],
+              ),
+            ),
+          ],
         ),
-        body: TabBarView(
-            controller: tabController,
-            children: <Widget>[
-              HomepageSubpage(),
-              HomepageSubpage(),
-              HomepageSubpage(),
-              HomepageSubpage(),
-              HomepageSubpage(),
-              HomepageSubpage(),
-            ]
-        ));
+      ),
+    );
   }
 }

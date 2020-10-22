@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toutiao/home/xiguapageSubPage.dart';
+import 'package:toutiao/xigua/xiguapageSubPage.dart';
 
 // 页面内容
 class XiguaPageContent extends StatefulWidget {

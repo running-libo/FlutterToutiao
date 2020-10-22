@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:toutiao/home/main.dart';
+import 'package:toutiao/main/main.dart';
 
 void main() {
   runApp(MyApp());
