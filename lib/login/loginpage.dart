@@ -1,24 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: LoginPage(),
-    );
-  }
-}
-
 class LoginPage extends StatefulWidget {
 
   @override
@@ -36,10 +18,15 @@ class _LoginPage extends State<LoginPage> {
       // ),
       body: ListView(
         children: <Widget>[
-          Container(
-            alignment: Alignment.topLeft,
-            padding: const EdgeInsets.all(15),
-            child: Image.asset("images/ic_close.png", width: 16, height: 16),
+          InkWell(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Container(
+              alignment: Alignment.topLeft,
+              padding: const EdgeInsets.all(15),
+              child: Image.asset("images/ic_close.png", width: 16, height: 16),
+            ),
           ),
           Container(
             padding: const EdgeInsets.only(top: 50),
