@@ -10,7 +10,7 @@ class MoreService extends StatelessWidget {
     titles1.add("用户反馈");
     titles1.add("钱包");
     titles1.add("广告推广");
-    titles1.add("免流量服务");
+    titles1.add("免流量");
 
     titles2.add("评论");
     titles2.add("点赞");

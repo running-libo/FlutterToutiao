@@ -14,12 +14,12 @@ class Applets extends StatelessWidget {
           Stack(
             children: [
               Align(
-                alignment: AlignmentDirectional.topStart,
+                alignment: AlignmentDirectional.bottomStart,
                 child: Text("小程序", style: TextStyle(fontSize: 18)),
               ),
               Align(
-                alignment: AlignmentDirectional.topEnd,
-                child: Text("全部 >", style: TextStyle(fontSize: 18)),
+                alignment: AlignmentDirectional.bottomEnd,
+                child: Text("全部 >", style: TextStyle(fontSize: 13, color: Colors.black38)),
               )
             ],
           ),

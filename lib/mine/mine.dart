@@ -27,25 +27,24 @@ class MinePage extends StatelessWidget {
           ),
           Container(
             margin: const EdgeInsets.only(top: 20),
-            child: Stack(
-              alignment: AlignmentDirectional.center,
-              children: [
-                Container(
-                    width: 120,
-                    height: 120,
-                    child: Image.asset("images/circle_bg.png", width: 20, height: 20)
-                ),
-                FloatingActionButton(
-                  backgroundColor: Colors.red,
-                  child: Text("登录", style: TextStyle(fontSize: 18)),
-                  onPressed: () {
-                    Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) {
-                      return LoginPage();
-                    }));
-                  },
-                ),
-              ],
-            ),
+            child: InkWell(
+              onTap: () {
+                Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) {
+                  return LoginPage();
+                }));
+              },
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Container(
+                      width: 110,
+                      height: 110,
+                      child: Image.asset("images/circle_bg.png", width: 20, height: 20)
+                  ),
+                  Text("登录", style: TextStyle(fontSize: 19, color: Colors.white))
+                ],
+              ),
+            )
           ),
           MineMenu(),
           Container(
