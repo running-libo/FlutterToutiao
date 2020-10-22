@@ -20,7 +20,7 @@ class HomeContent extends StatelessWidget {
         ClipRRect(
             borderRadius: BorderRadius.circular(4),
             child: Image.asset(
-              "images/news1.jpeg",
+              "images/news2.jpeg",
               alignment: Alignment.topCenter,
             )),
         "中国银行保险报",
@@ -31,7 +31,7 @@ class HomeContent extends StatelessWidget {
         ClipRRect(
             borderRadius: BorderRadius.circular(4),
             child: Image.asset(
-              "images/news2.jpeg",
+              "images/news1.jpeg",
               alignment: Alignment.topCenter,
             )),
         "环球网",

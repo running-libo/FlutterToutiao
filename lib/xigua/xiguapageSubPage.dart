@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../bean/NewsItemBean.dart';
+import 'package:toutiao/bean/VideoItemBean.dart';
 
 class XiguapageSubpage extends StatelessWidget {
   @override
@@ -11,20 +11,47 @@ class XiguapageSubpage extends StatelessWidget {
 }
 
 class HomeContent extends StatelessWidget {
-  List<NewsItemBean> list = new List();
+  List<VideoItemBean> list = new List();
 
   HomeContent() {
-    for (int i = 0; i < 20; i++) {
-      list.add(new NewsItemBean(
-          "日本将向海洋排放福岛核污水？",
-          ClipRRect(
-              child: Image.network(
-                "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1602884612610&di=99e5e92e7d3fd95d9c922f29c35f4b61&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2Fb%2F57a2a20321de9.jpg",
-                alignment: Alignment.topCenter,
-              )),
-          "央视网新闻",
-          "15"));
-    }
+    VideoItemBean videoItemBean1 = new VideoItemBean(
+        "马云圆梦A股！蚂蚁集团IPO获批",
+        ClipRRect(
+            child: Image.asset(
+          "images/news3.jpeg",
+          fit: BoxFit.cover,
+        )),
+        "中国银行保险报");
+
+    VideoItemBean videoItemBean3 = new VideoItemBean(
+        "100个抑郁症女生的写真",
+        ClipRRect(
+            child: Image.asset(
+          "images/news3.jpeg",
+          fit: BoxFit.cover,
+        )),
+        "央视网新闻");
+
+    VideoItemBean videoItemBean4 = new VideoItemBean(
+        "日本将向海洋排放福岛核污水？",
+        ClipRRect(
+            child: Image.asset(
+          "images/news4.jpeg",
+          fit: BoxFit.cover,
+        )),
+        "一条");
+
+    list.add(videoItemBean1);
+    list.add(videoItemBean3);
+    list.add(videoItemBean4);
+
+    list.add(videoItemBean1);
+    list.add(videoItemBean3);
+    list.add(videoItemBean4);
+
+    list.add(videoItemBean1);
+    list.add(videoItemBean3);
+    list.add(videoItemBean4);
   }
 
   @override
@@ -38,21 +65,24 @@ class HomeContent extends StatelessWidget {
               children: [
                 Stack(
                   children: [
-                    list[index].image,
                     Container(
-                        padding: const EdgeInsets.all(10),
-                        child: Text("不愧是记忆大师，把记忆方法都编成了\"口诀\"，快记下来！", style: TextStyle(fontSize: 16, color: Colors.white)),
+                      height: 250,
+                      child: list[index].image,
                     ),
-                    Center(
-                      child: Container(
-                        margin: const EdgeInsets.fromLTRB(0, 100, 0, 0),
-                        child: Image.asset("images/ic_play.png", width: 40, height: 40, alignment: Alignment.topCenter),
-                      ),
+                    Container(
+                      padding: const EdgeInsets.all(10),
+                      child: Text(list[index].title,
+                          style: TextStyle(fontSize: 16, color: Colors.white)),
                     ),
-
+                    Container(
+                      height: 250,
+                      alignment: Alignment.center,
+                      child: Image.asset("images/ic_play.png",
+                          width: 40, height: 40),
+                    )
                   ],
                 ),
-                UserCard()
+                UserCard(list[index])
               ],
             ),
           );
@@ -62,10 +92,13 @@ class HomeContent extends StatelessWidget {
 
 //用户card=
 class UserCard extends StatelessWidget {
+  VideoItemBean videoItemBean;
+
+  UserCard(this.videoItemBean);
+
   @override
   Widget build(BuildContext context) {
-    return  Row(
-      mainAxisAlignment: MainAxisAlignment.start,
+    return Row(
       children: [
         Container(
             margin: const EdgeInsets.fromLTRB(12, 10, 12, 10),
@@ -75,17 +108,21 @@ class UserCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(30),
                 child: Image.network(
                   "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603200753048&di=1435eb026099801a3c94e09d4545e0d1&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202003%2F03%2F20200303085706_ncPzz.thumb.400_0.jpeg",
-                  alignment: Alignment.topCenter,
-                ))
+                ))),
+        Text(videoItemBean.authorName),
+        Expanded(  //权重充满空白区域
+          flex: 1,
+          child: Text(""),
         ),
-        Text("卢菲菲记忆"),
+        Text("查看详情",style: TextStyle(color: Colors.red)),
         Container(
-          margin: const EdgeInsets.fromLTRB(125, 0, 10, 0),
-          child: Text("查看详情", style: TextStyle(color: Colors.deepOrangeAccent)),
-        ),
-        Image.asset("images/ic_more.png", width: 30, height: 30, alignment: Alignment.topCenter),
-        ],
+          margin: const EdgeInsets.only(left: 20, right: 20),
+          width: 18,
+          height: 18,
+          child: Image.asset("images/ic_more.png",
+              width: 30, height: 30, alignment: Alignment.topCenter),
+        )
+      ],
     );
   }
-
 }
