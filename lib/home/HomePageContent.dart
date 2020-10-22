@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toutiao/home/homepageSubPage.dart';
+import 'package:toutiao/home/homesearchview.dart';
 
 // 页面内容
 class HomePageContent extends StatefulWidget {
@@ -34,8 +35,11 @@ class HomePageContentState extends State<HomePageContent>
         child: Stack(
           children: [
             Container(
+              width: MediaQuery.of(context).size.width,
               color: Colors.red,
               height: 85,
+              padding: const EdgeInsets.only(left: 16, bottom: 2, right: 16),
+              child: HomeSearchView(),
             ),
             Container(
               margin: const EdgeInsets.only(top: 130),

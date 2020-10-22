@@ -60,6 +60,7 @@ flutter:
     - images/ic_app_bilibili.png
     - images/ic_app_maoyan.png
     - images/ic_app_nestes_music.png
+    - images/ic_search.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
