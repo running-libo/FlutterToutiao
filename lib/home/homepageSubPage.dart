@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
+import 'package:toutiao/login/loginpage.dart';
+import 'package:toutiao/webview/WebView.dart';
 import 'package:toutiao/widget/MyEasyRefresh.dart';
 
 import '../bean/NewsItemBean.dart';
@@ -87,39 +89,47 @@ class HomeContent extends StatelessWidget {
         ListView.builder(
             itemCount: list.length,
             itemBuilder: (context, index) {
-              return Container(
-                padding: const EdgeInsets.all(15),
-                child: Stack(
-                  children: [
-                    Container(
-                      width: 200,
-                      height: 60,
-                      child: Text(list[index].title,
-                          style: TextStyle(fontSize: 16)),
-                    ),
-                    Positioned(
-                      child: Container(
-                        margin: const EdgeInsets.fromLTRB(208, 0, 0, 0),
-                        width: 150,
-                        height: 70,
-                        child: ClipRRect(
-                            borderRadius: BorderRadius.circular(4),
-                            child: list[index].image),
+              return GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) {
+                    return MyWebView();
+                  }));
+                },
+                child: Container(
+                  padding: const EdgeInsets.all(15),
+                  child: Stack(
+                    children: [
+                      Container(
+                        width: 200,
+                        height: 60,
+                        child: Text(list[index].title,
+                            style: TextStyle(fontSize: 16)),
                       ),
-                    ),
-                    Container(
-                        margin: const EdgeInsets.fromLTRB(0, 60, 0, 0),
-                        child: Text(
-                            list[index].authorName +
-                                "  评论" +
-                                list[index].commentCount,
-                            style: TextStyle(
-                                fontSize: 12, color: Colors.black38))),
-                  ],
+                      Positioned(
+                        child: Container(
+                          margin: const EdgeInsets.fromLTRB(208, 0, 0, 0),
+                          width: 150,
+                          height: 70,
+                          child: ClipRRect(
+                              borderRadius: BorderRadius.circular(4),
+                              child: list[index].image),
+                        ),
+                      ),
+                      Container(
+                          margin: const EdgeInsets.fromLTRB(0, 60, 0, 0),
+                          child: Text(
+                              list[index].authorName +
+                                  "  评论" +
+                                  list[index].commentCount,
+                              style: TextStyle(
+                                  fontSize: 12, color: Colors.black38))),
+                    ],
+                  ),
+                  decoration: BoxDecoration(
+                      border: Border(
+                          bottom: BorderSide(
+                              width: 0.3, color: Colors.black12))),
                 ),
-                decoration: BoxDecoration(
-                    border: Border(
-                        bottom: BorderSide(width: 0.3, color: Colors.black12))),
               );
             })
     );

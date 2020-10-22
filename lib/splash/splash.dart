@@ -27,7 +27,7 @@ class MyHomePage extends StatelessWidget {
 
   //倒计时2秒跳进主页面
   void countDown(BuildContext context) {
-    new Timer(new Duration(seconds: 2), () {
+    new Timer(new Duration(seconds: 1), () {
       // 只在倒计时结束时回调
       Navigator.of(context).push(new MaterialPageRoute(builder: (context) {
         return new MainPage();

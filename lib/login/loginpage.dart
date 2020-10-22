@@ -12,10 +12,6 @@ class _LoginPage extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: CupertinoNavigationBar(
-      //   backgroundColor: Colors.white,
-      //   middle: const Text("登录"),
-      // ),
       body: ListView(
         children: <Widget>[
           InkWell(
