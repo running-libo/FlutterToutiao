@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../bean/ListItem.dart';
+import '../bean/NewsItemBean.dart';
 
 class HomepageSubpage extends StatelessWidget {
   @override
@@ -12,21 +12,67 @@ class HomepageSubpage extends StatelessWidget {
 }
 
 class HomeContent extends StatelessWidget {
-  List<ListItem> list = new List();
+  List<NewsItemBean> list = new List();
 
   HomeContent() {
-    for (int i = 0; i < 20; i++) {
-      list.add(new ListItem(
-          "日本将向海洋排放福岛核污水？",
-          ClipRRect(
-              borderRadius: BorderRadius.circular(4),
-              child: Image.network(
-                "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1602884612610&di=99e5e92e7d3fd95d9c922f29c35f4b61&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2Fb%2F57a2a20321de9.jpg",
-                alignment: Alignment.topCenter,
-              )),
-          "央视网新闻",
-          "15"));
-    }
+    NewsItemBean itemBean1 = new NewsItemBean(
+        "马云圆梦A股！蚂蚁集团IPO获批",
+        ClipRRect(
+            borderRadius: BorderRadius.circular(4),
+            child: Image.asset(
+              "images/news1.jpeg",
+              alignment: Alignment.topCenter,
+            )),
+        "中国银行保险报",
+        "78");
+
+    NewsItemBean itemBean2 = new NewsItemBean(
+        "奥巴马炮轰特朗普：从我这儿继承的美国\"繁荣经济\"，他全搞砸了",
+        ClipRRect(
+            borderRadius: BorderRadius.circular(4),
+            child: Image.asset(
+              "images/news2.jpeg",
+              alignment: Alignment.topCenter,
+            )),
+        "环球网",
+        "753");
+
+    NewsItemBean itemBean3 = new NewsItemBean(
+        "100个抑郁症女生的写真",
+        ClipRRect(
+            borderRadius: BorderRadius.circular(4),
+            child: Image.asset(
+              "images/news3.jpeg",
+              alignment: Alignment.topCenter,
+            )),
+        "央视网新闻",
+        "15");
+
+    NewsItemBean itemBean4 = new NewsItemBean(
+        "日本将向海洋排放福岛核污水？",
+        ClipRRect(
+            borderRadius: BorderRadius.circular(4),
+            child: Image.asset(
+              "images/news4.jpeg",
+              alignment: Alignment.topCenter,
+            )),
+        "一条",
+        "625");
+
+    list.add(itemBean1);
+    list.add(itemBean2);
+    list.add(itemBean3);
+    list.add(itemBean4);
+
+    list.add(itemBean1);
+    list.add(itemBean2);
+    list.add(itemBean3);
+    list.add(itemBean4);
+
+    list.add(itemBean1);
+    list.add(itemBean2);
+    list.add(itemBean3);
+    list.add(itemBean4);
   }
 
   @override
@@ -59,6 +105,9 @@ class HomeContent extends StatelessWidget {
                     child: Text(list[index].authorName + "  评论" + list[index].commentCount, style: TextStyle(fontSize: 12, color: Colors.black38))
                 ),
               ],
+            ),
+            decoration: BoxDecoration(
+              border: Border(bottom: BorderSide(width: 0.3, color: Colors.black12))
             ),
           );
         });

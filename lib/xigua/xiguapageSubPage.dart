@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../bean/ListItem.dart';
+import '../bean/NewsItemBean.dart';
 
 class XiguapageSubpage extends StatelessWidget {
   @override
@@ -11,11 +11,11 @@ class XiguapageSubpage extends StatelessWidget {
 }
 
 class HomeContent extends StatelessWidget {
-  List<ListItem> list = new List();
+  List<NewsItemBean> list = new List();
 
   HomeContent() {
     for (int i = 0; i < 20; i++) {
-      list.add(new ListItem(
+      list.add(new NewsItemBean(
           "日本将向海洋排放福岛核污水？",
           ClipRRect(
               child: Image.network(

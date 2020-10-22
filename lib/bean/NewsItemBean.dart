@@ -1,11 +1,11 @@
 
 import 'package:flutter/material.dart';
 
-class ListItem {
+class NewsItemBean {
   final String title;
   final ClipRRect image;
   final String authorName;
   final String commentCount;
 
-  ListItem(this.title, this.image, this.authorName, this.commentCount);
+  NewsItemBean(this.title, this.image, this.authorName, this.commentCount);
 }
