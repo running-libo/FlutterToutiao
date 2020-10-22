@@ -16,11 +16,10 @@ class MineMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         color: Colors.white,
-        height: 80,
+        height: 90,
         alignment: Alignment.center,
-        padding: const EdgeInsets.only(top: 20),
-        margin: const EdgeInsets.only(top: 30),
-        child: MenuRow(titles1)
+        margin: const EdgeInsets.only(top: 25),
+        child: MenuRow(titles1, Colors.red)
     );
   }
 
@@ -30,8 +29,9 @@ class MineMenu extends StatelessWidget {
 class MenuRow extends StatelessWidget {
 
   List<String> titles = List();
+  Color iconColor = Colors.red;
 
-  MenuRow(this.titles);
+  MenuRow(this.titles, this.iconColor);
 
   @override
   Widget build(BuildContext context) {
@@ -40,20 +40,32 @@ class MenuRow extends StatelessWidget {
       mainAxisSize: MainAxisSize.max,  //match_parent
       children: [
         Column(children: [
-          Icon(Icons.notifications_none_outlined, color: Colors.red),
-          Text(titles[0])
+          Container(
+            margin: const EdgeInsets.only(top: 20, bottom: 5),
+            child: Icon(Icons.notifications_none_outlined, size: 30, color: iconColor),
+          ),
+          Text(titles[0], style: TextStyle(fontSize: 13))
         ],),
         Column(children: [
-          Icon(Icons.star_border, color: Colors.red),
-          Text(titles[1])
+          Container(
+            margin: const EdgeInsets.only(top: 20, bottom: 5),
+            child: Icon(Icons.star_border, size: 30, color: iconColor),
+          ),
+          Text(titles[1], style: TextStyle(fontSize: 13))
         ],),
         Column(children: [
-          Icon(Icons.history, color: Colors.red),
-          Text(titles[2])
+          Container(
+            margin: const EdgeInsets.only(top: 20, bottom: 5),
+            child: Icon(Icons.history, size: 30,  color: iconColor),
+          ),
+          Text(titles[2], style: TextStyle(fontSize: 13))
         ],),
         Column(children: [
-          Icon(Icons.download_sharp, color: Colors.red),
-          Text(titles[3])
+          Container(
+            margin: const EdgeInsets.only(top: 20, bottom: 5),
+            child: Icon(Icons.download_sharp, size: 30, color: iconColor),
+          ),
+          Text(titles[3], style: TextStyle(fontSize: 13))
         ],),
       ],
     );
@@ -68,38 +80,39 @@ class AppletMenuRow extends StatelessWidget {
       mainAxisSize: MainAxisSize.max,  //match_parent
       children: [
         Column(children: [
-          Container(
-            width: 30,
-            height: 30,
-            child: Image.asset("images/launcher.png"),
-          ),
-          Text("今日头条")
+          AppIcon("images/ic_app_douyin.png"),
+          Text("抖音")
         ]),
         Column(children: [
-          Container(
-            width: 30,
-            height: 30,
-            child: Image.asset("images/launcher.png"),
-          ),
-          Text("今日头条")
+          AppIcon("images/ic_app_bilibili.png"),
+          Text("bilibili")
         ]),
         Column(children: [
-          Container(
-            width: 30,
-            height: 30,
-            child: Image.asset("images/launcher.png"),
-          ),
-          Text("今日头条")
+          AppIcon("images/ic_app_maoyan.png"),
+          Text("猫眼")
         ]),
         Column(children: [
-          Container(
-            width: 30,
-            height: 30,
-            child: Image.asset("images/launcher.png"),
-          ),
-          Text("今日头条")
+          AppIcon("images/ic_app_nestes_music.png"),
+          Text("云音乐")
         ])
       ],
+    );
+  }
+
+}
+
+class AppIcon extends StatelessWidget {
+  String asset;
+
+  AppIcon(this.asset);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(top: 20, bottom: 3),
+      width: 35,
+      height: 35,
+      child: Image.asset(asset),
     );
   }
 

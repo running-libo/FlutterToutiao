@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:toutiao/login/loginpage.dart';
 import 'package:toutiao/mine/applets.dart';
 import 'package:toutiao/mine/minemenu.dart';
+import 'moreservice.dart';
 
 class MinePage extends StatelessWidget {
 
@@ -25,13 +26,13 @@ class MinePage extends StatelessWidget {
             ],
           ),
           Container(
-            margin: const EdgeInsets.only(top: 30),
+            margin: const EdgeInsets.only(top: 20),
             child: Stack(
               alignment: AlignmentDirectional.center,
               children: [
                 Container(
-                    width: 100,
-                    height: 100,
+                    width: 120,
+                    height: 120,
                     child: Image.asset("images/circle_bg.png", width: 20, height: 20)
                 ),
                 FloatingActionButton(
@@ -56,16 +57,16 @@ class MinePage extends StatelessWidget {
               children: [
                 Align(
                     alignment: Alignment.centerLeft,
-                    child: Text("你创作的，就是头条")
+                    child: Text("你创作的，就是头条", style: TextStyle(fontSize: 15))
                 ),
                 Align(
                   alignment: AlignmentDirectional.centerEnd,
                   child: Container(
-                    width: 65,
+                    width: 69,
                     height: 30,
                     child: OutlineButton(
                       textColor: Colors.red,
-                      child: Text("+发布", style: TextStyle(fontSize: 12)),
+                      child: Text("+发布", style: TextStyle(fontSize: 13)),
                       borderSide: BorderSide(color: Colors.red, style: BorderStyle.solid),
                       onPressed: () {
                         print("OutlineButton Click");
@@ -80,50 +81,9 @@ class MinePage extends StatelessWidget {
           Container(
             color: Colors.white,
             padding: const EdgeInsets.all(12),
-            margin: const EdgeInsets.only(top: 14),
+            margin: const EdgeInsets.only(top: 14, bottom: 20),
             child: Applets(),
           )
-        ],
-      ),
-    );
-  }
-
-}
-
-class MoreService extends StatelessWidget {
-  List<String> titles1 = List();
-  List<String> titles2 = List();
-
-  MoreService() {
-    titles1.add("用户反馈");
-    titles1.add("钱包");
-    titles1.add("广告推广");
-    titles1.add("免流量服务");
-
-    titles2.add("评论");
-    titles2.add("点赞");
-    titles2.add("夜间模式");
-    titles2.add("关注");
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      padding: const EdgeInsets.all(12),
-      margin: const EdgeInsets.only(top: 14),
-      child: Column(
-        children: [
-          Stack(
-            children: [
-              Align(
-                alignment: AlignmentDirectional.topStart,
-                child: Text("更多服务", style: TextStyle(fontSize: 18)),
-              )
-            ],
-          ),
-          MenuRow(titles1),
-          MenuRow(titles2)
         ],
       ),
     );

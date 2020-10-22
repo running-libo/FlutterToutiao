@@ -56,6 +56,10 @@ flutter:
     - images/ic_scan.png
     - images/ic_setting.png
     - images/circle_bg.png
+    - images/ic_app_douyin.png
+    - images/ic_app_bilibili.png
+    - images/ic_app_maoyan.png
+    - images/ic_app_nestes_music.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
