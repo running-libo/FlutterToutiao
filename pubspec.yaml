@@ -30,6 +30,7 @@ dependencies:
   cached_network_image: ^2.3.3
   flutter_swiper: ^1.1.6
   video_player: ^0.11.1+2
+  dio: ^3.0.10
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -60,6 +61,7 @@ flutter:
     - images/ic_close.png
     - images/ic_scan.png
     - images/ic_setting.png
+    - images/ic_comment.png
     - images/circle_bg.png
     - images/ic_app_douyin.png
     - images/ic_app_bilibili.png
@@ -70,6 +72,12 @@ flutter:
     - images/news2.jpeg
     - images/news3.jpeg
     - images/news4.jpeg
+    - images/video_cover1.jpg
+    - images/video_cover2.jpg
+    - images/video_cover3.jpg
+    - images/video_head1.jpg
+    - images/video_head2.jpg
+    - images/video_head3.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

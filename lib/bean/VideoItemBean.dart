@@ -1,10 +1,10 @@
 
-import 'package:flutter/material.dart';
-
 class VideoItemBean {
   final String title;
-  final ClipRRect image;
+  final String cover;
   final String authorName;
+  final String avator;
+  final String commentCount;
 
-  VideoItemBean(this.title, this.image, this.authorName);
+  VideoItemBean(this.title, this.cover, this.authorName, this.avator, this.commentCount);
 }

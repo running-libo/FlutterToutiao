@@ -14,7 +14,9 @@ class XiguaPageContent extends StatefulWidget {
 
 class XiguaPageContentState extends State<XiguaPageContent>
     with SingleTickerProviderStateMixin {
-  List tabs = ["推荐", "热门", "影视", "直播", "游戏", "音乐"];
+  List tabs = ["推荐", "热门", "影视", "直播", "游戏", "音乐", "综艺", "美食"];
+  List<XiguapageSubpage> pages = new List();
+  List<Tab> tabViews = new List();
   TabController tabController;
 
   @override
@@ -24,6 +26,12 @@ class XiguaPageContentState extends State<XiguaPageContent>
     tabController.addListener(() {
       var index = tabController.index;
     });
+
+    for(int i=0;i<tabs.length;i++) {
+      pages.add(XiguapageSubpage());
+      tabViews.add(Tab(text: tabs[i]));
+    }
+
   }
 
   @override
@@ -44,14 +52,7 @@ class XiguaPageContentState extends State<XiguaPageContent>
               margin: const EdgeInsets.only(top: 130),
               child: TabBarView(
                 controller: tabController,
-                children: [
-                  XiguapageSubpage(),
-                  XiguapageSubpage(),
-                  XiguapageSubpage(),
-                  XiguapageSubpage(),
-                  XiguapageSubpage(),
-                  XiguapageSubpage(),
-                ],
+                children: pages,
               ),
             ),
             Container(
@@ -62,14 +63,7 @@ class XiguaPageContentState extends State<XiguaPageContent>
                 labelColor: Colors.red,
                 unselectedLabelColor: Colors.black87,
                 indicatorColor: Colors.red,
-                tabs: [
-                  Tab(text: "推荐"),
-                  Tab(text: "热门"),
-                  Tab(text: "影视"),
-                  Tab(text: "直播"),
-                  Tab(text: "游戏"),
-                  Tab(text: "音乐"),
-                ],
+                tabs: tabViews,
               ),
             ),
           ],

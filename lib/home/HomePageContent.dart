@@ -14,7 +14,9 @@ class HomePageContent extends StatefulWidget {
 
 class HomePageContentState extends State<HomePageContent>
     with SingleTickerProviderStateMixin {
-  List tabs = ["关注", "推荐", "热榜", "要闻", "新时代", "抗疫"];
+  List tabs = ["关注", "推荐", "热榜", "要闻", "新时代", "抗疫", "免费小说", "热点"];
+  List<HomepageSubpage> pages = new List();
+  List<Tab> tabViews = new List();
   TabController tabController;
   var topBarHeight = 65;
 
@@ -25,6 +27,12 @@ class HomePageContentState extends State<HomePageContent>
     tabController.addListener(() {
       var index = tabController.index;
     });
+
+    for(int i=0;i<tabs.length;i++) {
+      pages.add(HomepageSubpage());
+      tabViews.add(Tab(text: tabs[i]));
+    }
+
   }
 
   @override
@@ -45,14 +53,7 @@ class HomePageContentState extends State<HomePageContent>
               margin: const EdgeInsets.only(top: 130),
               child: TabBarView(
                 controller: tabController,
-                children: [
-                  HomepageSubpage(),
-                  HomepageSubpage(),
-                  HomepageSubpage(),
-                  HomepageSubpage(),
-                  HomepageSubpage(),
-                  HomepageSubpage(),
-                ],
+                children: pages,
               ),
             ),
             Container(
@@ -63,14 +64,7 @@ class HomePageContentState extends State<HomePageContent>
                 labelColor: Colors.red,
                 unselectedLabelColor: Colors.black87,
                 indicatorColor: Colors.red,
-                tabs: [
-                  Tab(text: "关注"),
-                  Tab(text: "推荐"),
-                  Tab(text: "热榜"),
-                  Tab(text: "要闻"),
-                  Tab(text: "新时代"),
-                  Tab(text: "抗疫"),
-                ],
+                tabs: tabViews,
               ),
             ),
           ],

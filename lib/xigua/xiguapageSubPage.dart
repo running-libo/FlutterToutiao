@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:toutiao/bean/VideoItemBean.dart';
 import 'package:toutiao/widget/MyEasyRefresh.dart';
@@ -17,31 +16,25 @@ class HomeContent extends StatelessWidget {
 
   HomeContent() {
     VideoItemBean videoItemBean1 = new VideoItemBean(
-        "马云圆梦A股！蚂蚁集团IPO获批",
-        ClipRRect(
-            child: Image.asset(
-          "images/news3.jpeg",
-          fit: BoxFit.cover,
-        )),
-        "中国银行保险报");
+        "或许，这才是姜子牙真正想要表达的意思！",
+        "images/video_cover1.jpg",
+        "电影狂人A",
+        "images/video_head1.jpg",
+        "245");
 
     VideoItemBean videoItemBean3 = new VideoItemBean(
-        "100个抑郁症女生的写真",
-        ClipRRect(
-            child: Image.asset(
-          "images/news3.jpeg",
-          fit: BoxFit.cover,
-        )),
-        "央视网新闻");
+        "六大被北影录用教材的镜头，徐峥在医院哭戏，游本昌一个眼神封神",
+        "images/video_cover2.jpg",
+        "盘点老梁",
+        "images/video_head2.jpg",
+        "9432");
 
     VideoItemBean videoItemBean4 = new VideoItemBean(
-        "日本将向海洋排放福岛核污水？",
-        ClipRRect(
-            child: Image.asset(
-          "images/news4.jpeg",
-          fit: BoxFit.cover,
-        )),
-        "一条");
+        "敌我差距之鲁班：敌方鲁班五杀随便拿，我方鲁班不像话？",
+        "images/video_cover3.jpg",
+        "电竞小芯",
+        "images/video_head3.jpg",
+        "834");
 
     list.add(videoItemBean1);
     list.add(videoItemBean3);
@@ -69,19 +62,20 @@ class HomeContent extends StatelessWidget {
                     Stack(
                       children: [
                         Container(
-                          height: 250,
-                          child: list[index].image,
+                          height: 200,
+                          child: Image.asset(list[index].cover),
                         ),
                         Container(
+                          width: 270,
                           padding: const EdgeInsets.all(10),
                           child: Text(list[index].title,
                               style: TextStyle(fontSize: 16, color: Colors.white)),
                         ),
                         Container(
-                          height: 250,
+                          height: 200,
                           alignment: Alignment.center,
                           child: Image.asset("images/ic_play.png",
-                              width: 40, height: 40),
+                              width: 50, height: 50),
                         )
                       ],
                     ),
@@ -110,20 +104,18 @@ class UserCard extends StatelessWidget {
             height: 30,
             child: ClipRRect(
                 borderRadius: BorderRadius.circular(30),
-                child: CachedNetworkImage(
-                  imageUrl: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603200753048&di=1435eb026099801a3c94e09d4545e0d1&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202003%2F03%2F20200303085706_ncPzz.thumb.400_0.jpeg",
-                  placeholder: (context, url) =>  CircularProgressIndicator(),
-                  errorWidget: (context, url, error) => Icon(Icons.error),
-                ),
+                child: Image.asset(videoItemBean.avator),
             )),
         Text(videoItemBean.authorName),
+        Text("  关注", style: TextStyle(color: Colors.red, fontSize: 13)),
         Expanded(  //权重充满空白区域
           flex: 1,
           child: Text(""),
         ),
-        Text("查看详情",style: TextStyle(color: Colors.red)),
+        Image.asset("images/ic_comment.png", width: 15, height: 15),
+        Text(" " + videoItemBean.commentCount, style: TextStyle(fontSize: 13)),
         Container(
-          margin: const EdgeInsets.only(left: 20, right: 20),
+          margin: const EdgeInsets.only(left: 25, right: 20),
           width: 18,
           height: 18,
           child: Image.asset("images/ic_more.png",
