@@ -15,9 +15,9 @@ class _MyAppState extends State<MainPage> {
   int _currentIndex = 0;
 
   List<Widget> _pageList = [
-    HomePage(),
-    XiguaPage(),
-    MinePage(),
+    HomePage(),  //页面1
+    XiguaPage(), //页面2
+    MinePage(),  //页面3
   ];
 
   List<BottomNavigationBarItem> bottomItems = [

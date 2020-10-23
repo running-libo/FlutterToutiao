@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:toutiao/bean/VideoItemBean.dart';
 import 'package:toutiao/widget/MyEasyRefresh.dart';
@@ -109,9 +110,12 @@ class UserCard extends StatelessWidget {
             height: 30,
             child: ClipRRect(
                 borderRadius: BorderRadius.circular(30),
-                child: Image.network(
-                  "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603200753048&di=1435eb026099801a3c94e09d4545e0d1&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202003%2F03%2F20200303085706_ncPzz.thumb.400_0.jpeg",
-                ))),
+                child: CachedNetworkImage(
+                  imageUrl: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603200753048&di=1435eb026099801a3c94e09d4545e0d1&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202003%2F03%2F20200303085706_ncPzz.thumb.400_0.jpeg",
+                  placeholder: (context, url) =>  CircularProgressIndicator(),
+                  errorWidget: (context, url, error) => Icon(Icons.error),
+                ),
+            )),
         Text(videoItemBean.authorName),
         Expanded(  //权重充满空白区域
           flex: 1,
